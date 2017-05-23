@@ -219,6 +219,7 @@ angular.module('angular-echarts.util', []).factory('util', function () {
                 }
               }, config.heatmap || {});
             }
+
             if (isGauge2Chart(type)) {
                 conf.type = 'gauge';
                 conf = angular.extend(conf, {
@@ -277,6 +278,8 @@ angular.module('angular-echarts.util', []).factory('util', function () {
                     }
                 };
             }
+            
+            conf = angular.extend(conf, serie.seriesOptions || {});
             series.push(conf);
         });
 
